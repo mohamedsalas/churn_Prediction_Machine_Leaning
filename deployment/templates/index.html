@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>ROBOTCHURN</title>
+    <link rel="icon" type="images/favicon.png" href="../static/images/favicon-32x32.png"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/css/main.css') }}"/>
+    <!--<link rel="stylesheet" href="assets/css/main.css"/>-->
+    <!--<img src="/images/churn.png" class="churn" />-->
+    <noscript>
+        <!--<link rel="stylesheet" href="assets/css/noscript.css"/>-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='assets/css/noscript.css') }}"/>
+    </noscript>
+
+    <style>
+        .churn {
+            height: 200px;
+            weight: 200px;
+        }
+    </style>
+</head>
+<body class="is-preload landing">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo">WELCOME</h1>
+        <!--<nav id="nav">
+            <ul>
+                <li><a href="111.html">Home</a></li>
+                <li>
+                    <a href="#">Layouts</a>
+                    <ul>
+                        <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                        <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                        <li><a href="no-sidebar.html">No Sidebar</a></li>
+                        <li>
+                            <a href="#">Submenu</a>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="elements.html">Elements</a></li>
+                <li><a href="#" class="button primary">Sign Up</a></li>
+            </ul>
+        </nav>-->
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="content">
+            <header style="margin-right:-80px;">
+                <center><h2>ROBOCHURN</h2></center>
+                <p>Is your customer churning? LET ME PREDICT ...</p>
+            </header>
+            <span class="image"><img src="../static/images/logo.png" alt=""/></span>
+        </div>
+        <a href="#four" class="goto-next scrolly">Next</a>
+    </section>
+
+
+    <!-- Four -->
+    <section id="four" class="wrapper style1 special fade-up">
+        <div class="container">
+            <header class="major">
+                <h2>REQUIRED DATA INFORMATIONS</h2>
+
+            </header>
+
+            <div class="box alt">
+                <form action="{{ url_for('predict')}}" method="post">
+                    <div class="row gtr-uniform">
+
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>The longitude of the customer’s primary residence.</p>
+                            <br>
+
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Longitude" placeholder="Longitude"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Whether the customer has a partner or not. </p>
+                            <br>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Partner"
+                                                                    placeholder="Partner (1 or 0)" required="required"/>
+                            </div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p> Indicates if the customer lives with any dependents:Dependents could be children,
+                                parents, grandparents, etc..</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Dependents"
+                                                                    placeholder="Dependents (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates the total amount of months that the customer has been with the company by the
+                                end of the quarter specified above.</p>
+
+
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Tenure Months"
+                                                                    placeholder="Tenure Months " required="required"/>
+                            </div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to home phone service with the company. </p>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Phone Service"
+                                                                    placeholder="Phone Service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer has chosen paperless billing. </p>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Paperless Billing"
+                                                                    placeholder="Paperless Billing (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p> Indicates the customer’s current total monthly charge for all their services from the
+                                company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Monthly Charges"
+                                                                    placeholder="Monthly Charges " required="required"/>
+                            </div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p> Indicates the customer’s total charges, calculated to the end of the quarter specified
+                                above..</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Total Charges"
+                                                                    placeholder="Total Charges" required="required"/>
+                            </div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Gender Female.</p>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Gender_Female"
+                                                                    placeholder="Gender_Female (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Gender Male.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Gender_Male"
+                                                                    placeholder="Gender_Male (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer is 65.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Senior Citizen_No"
+                                                                    placeholder="Senior Citizen_No (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer is older than 65.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Senior Citizen_Yes"
+                                                                    placeholder="Senior Citizen_Yes (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not subscribing to multiple telephone lines with the
+                                company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Multiple Lines_No"
+                                                                    placeholder="Multiple Lines_No (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No phone service.</p>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Multiple Lines_No phone service"
+                                                                    placeholder="Multiple Lines_No phone service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to multiple telephone lines with the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Multiple Lines_Yes"
+                                                                    placeholder="Multiple Lines_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to Internet service with the company: DSL .</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Internet Service_DSL"
+                                                                    placeholder="Internet Service_DSL (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to Internet service with the company:Fiber
+                                Optic.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Internet Service_Fiber optic"
+                                                                    placeholder="Internet Service_Fiber optic (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Internet Service_No"
+                                                                    placeholder="Internet Service_No (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not subscribing to an additional online security service
+                                provided by the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Online Security_No"
+                                                                    placeholder="Online Security_No (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Online Security_No internet service"
+                                                                    placeholder="Online Security_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to an additional online security service provided by
+                                the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Online Security_Yes"
+                                                                    placeholder="Online Security_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not subscribing to an additional online backup service
+                                provided by the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Online Backup_No"
+                                                                    placeholder="Online Backup_No (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Online Backup_No internet service"
+                                                                    placeholder="Online Backup_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to an additional online backup service provided by
+                                the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Online Backup_Yes"
+                                                                    placeholder="Online Backup_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not subscribing to an additional device protection plan for
+                                their Internet equipment provided by the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Device Protection_No"
+                                                                    placeholder="Device Protection_No (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Device Protection_No internet service"
+                                                                    placeholder="Device Protection_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to an additional device protection plan for their
+                                Internet equipment provided by the company.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Device Protection_Yes"
+                                                                    placeholder="Device Protection_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not subscribing to an additional technical support plan from
+                                the company with reduced wait times
+                                .</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Tech Support_No"
+                                                                    placeholder="Tech Support_No (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Tech Support_No internet service"
+                                                                    placeholder="Tech Support_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer subscribes to an additional technical support plan from the
+                                company with reduced wait times.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Tech Support_Yes"
+                                                                    placeholder="Tech Support_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not using their Internet service to stream television
+                                programing from a third party provider.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Streaming TV_No"
+                                                                    placeholder="Streaming TV_No (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Streaming TV_No internet service"
+                                                                    placeholder="Streaming TV_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer uses their Internet service to stream television programing
+                                from a third party provider.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Streaming TV_Yes"
+                                                                    placeholder="Streaming TV_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer's not using their Internet service to stream movies from a
+                                third party provider.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Streaming Movies_No"
+                                                                    placeholder="Streaming Movies_No (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>No internet service.</p>
+                            <br><br>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Streaming Movies_No internet service"
+                                                                    placeholder="Streaming Movies_No internet service (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates if the customer uses their Internet service to stream movies from a third party
+                                provider.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Streaming Movies_Yes"
+                                                                    placeholder="Streaming Movies_Yes (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates the customer’s current contract type: Month-to-Month.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Indicates the customer’s current contract type: Month-to-Month"
+                                                                    placeholder="Contract_Month-to-month (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates the customer’s current contract type: One Year.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Contract_One year"
+                                                                    placeholder="Contract_One year (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates the customer’s current contract type: Two Year..</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Contract_Two year"
+                                                                    placeholder="Contract_Two year (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates how the customer pays their bill: transfer.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Payment Method_Bank transfer (automatic)"
+                                                                    placeholder="Payment Method_Bank transfer (automatic) (1 or 0) "
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates how the customer pays their bill:Credit Card.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text"
+                                                                    name="Payment Method_Credit card (automatic)"
+                                                                    placeholder="Payment Method_Credit card (automatic) (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates how the customer pays their bill:Electronic check.</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Payment Method_Electronic check"
+                                                                    placeholder="Payment Method_Electronic check (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+                        <section class="col-4 col-6-medium col-12-xsmall">
+
+                            <p>Indicates how the customer pays their bill: Mailed Check .</p>
+                            <div class="col-8 col-12-xsmall"><input type="text" name="Payment Method_Mailed check"
+                                                                    placeholder="Payment Method_Mailed check (1 or 0)"
+                                                                    required="required"/></div>
+                        </section>
+
+                    </div>
+                    <footer class="major">
+                        <div class="container">
+
+                            <form class="cta">
+                                <div class="row gtr-uniform gtr-50">
+                                    <!--<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>-->
+                                    <div class="col-4 col-12-xsmall">
+                                        <input style="margin-right:-800px; " id="predict_buttom" type="submit" value="Predict" class="fit primary"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </footer>
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Five -->
+
+    <section id="five" class="wrapper style2 special fade">
+
+        {% if prediction_text==1 %}
+        <img src="../static/images/churn.png" class="churn"/>
+        <h2>This customer is churning...<i class="fas fa-frown"></i></h2>
+        {% endif %}
+
+
+        {% if prediction_text==0 %}
+        <img src="../static/images/non_churn.png" class="churn"/>
+        <h2>This customer is not churning...<i class="fas fa-laugh"></i></h2>
+        {% endif %}
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Designed by: FERCHICHI LOUAY, HADDAD SKANDER,
+                HASNAOUI FARES, MAHFOUDH HAZEM, TARHOUNI ERIJ</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="../static/assets/js/jquery.min.js"></script>
+<script src="../static/assets/js/jquery.scrolly.min.js"></script>
+<script src="../static/assets/js/jquery.dropotron.min.js"></script>
+<script src="../static/assets/js/jquery.scrollex.min.js"></script>
+<script src="../static/assets/js/browser.min.js"></script>
+<script src="../static/assets/js/breakpoints.min.js"></script>
+<script src="../static/assets/js/util.js"></script>
+<script src="../static/assets/js/main.js"></script>
+
+
+</body>
+</html>
